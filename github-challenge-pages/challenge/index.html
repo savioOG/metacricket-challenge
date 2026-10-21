@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Open MetaCricket challenge</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; padding: 40px 20px; background: #0b1220; color: #fff; }
+    a { display: inline-block; margin-top: 20px; padding: 14px 22px; background: #1db954; color: #fff; text-decoration: none; border-radius: 10px; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <h1>Opening MetaCricket…</h1>
+  <p>If the game does not open, tap the button.</p>
+  <p><a id="openApp" href="metashot://challenge">Open MetaCricket</a></p>
+  <script>
+    (function () {
+      var q = window.location.search || "";
+      var app = "metashot://challenge" + q;
+      var intent = "intent://challenge" + q + "#Intent;scheme=metashot;package=com.metashot.metacricket;end";
+      var link = document.getElementById("openApp");
+      link.href = app;
+      function go() {
+        window.location.href = app;
+        setTimeout(function () { window.location.href = intent; }, 350);
+      }
+      go();
+    })();
+  </script>
+</body>
+</html>
